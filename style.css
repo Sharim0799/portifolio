@@ -235,6 +235,31 @@ a {
     color: var(--accent-color);
 }
 
+.btn-cv {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.btn-cv:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-cv i {
+    font-size: 1rem;
+}
+
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
@@ -370,6 +395,19 @@ section {
     color: var(--accent-color);
 }
 
+/* ===== CV BUTTON ===== */
+.cv-button-container {
+    margin-top: 2rem;
+    text-align: left;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.about-skills .cv-button-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+
 /* ===== PROJECTS SECTION ===== */
 .projects {
     background: var(--secondary-bg);
@@ -379,6 +417,12 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    align-items: stretch;
+}
+
+.project-link {
+    display: block;
+    height: 100%;
 }
 
 .project-card {
@@ -388,6 +432,9 @@ section {
     border: 1px solid var(--border-color);
     cursor: pointer;
     transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -396,14 +443,24 @@ section {
     border-color: var(--accent-color);
 }
 
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
 .project-image img {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .project-content {
     padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-title {
@@ -413,6 +470,72 @@ section {
 
 .project-description {
     color: var(--secondary-text);
+}
+
+/* ===== NETFLIX CARD STYLING ===== */
+.netflix-card .project-image {
+    background: linear-gradient(135deg, #000000 0%, #e50914 100%);
+}
+
+.netflix-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(229,9,20,0.6) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.netflix-card:hover .netflix-overlay {
+    opacity: 1;
+}
+
+.netflix-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.netflix-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #e50914;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.netflix-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.netflix-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #cccccc;
+}
+
+.netflix-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.netflix-btn:hover {
+    background: #f40612;
 }
 
 /* ===== CLIENT QUOTE ===== */
