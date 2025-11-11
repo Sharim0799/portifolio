@@ -35,26 +35,26 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
     const scrollY = window.scrollY;
-    
+
     // Navbar background
     navbar.style.background = scrollY > 50 ? 'rgba(10, 10, 10, 0.98)' : 'rgba(10, 10, 10, 0.95)';
     navbar.style.boxShadow = scrollY > 50 ? '0 2px 20px rgba(0, 0, 0, 0.3)' : 'none';
-    
+
     // Active navigation
     const sections = ['home', 'about', 'projects', 'contact'];
     let current = 'home';
-    
+
     sections.forEach(section => {
         const element = document.getElementById(section);
         if (element && scrollY >= element.offsetTop - 270) {
             current = section;
         }
     });
-    
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
-    
+
     // Back to top button
     const backBtn = document.querySelector('.back-to-top');
     if (backBtn) {
@@ -71,15 +71,15 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const errors = {};
-    
+
     // Simple validation
     if (!data.get('name').trim()) errors.name = 'Name required';
     if (!data.get('email').trim() || !data.get('email').includes('@')) errors.email = 'Valid email required';
     if (!data.get('message').trim()) errors.message = 'Message required';
-    
+
     // Clear previous errors
     document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-    
+
     if (Object.keys(errors).length > 0) {
         Object.keys(errors).forEach(field => {
             const errorEl = document.getElementById(`${field}-error`);
@@ -87,12 +87,12 @@ form.addEventListener('submit', async (e) => {
         });
         return;
     }
-    
+
     // Submit simulation
     const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending...';
     btn.disabled = true;
-    
+
     setTimeout(() => {
         formStatus.textContent = 'Message sent successfully!';
         formStatus.className = 'form-status success';
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-    
+
     // Create back to top button
     const backBtn = document.createElement('button');
     backBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
